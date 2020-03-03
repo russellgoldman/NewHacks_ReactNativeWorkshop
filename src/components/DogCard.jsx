@@ -1,11 +1,13 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-export default DogCard = ({ image, title, leftShift }) => {
+const { height, width } = Dimensions.get('screen')
+let CardWidth = .80
+
+export default DogCard = ({ image, title, first }) => {
     return (
-        <CardContainer leftShift={leftShift}>
+        <CardContainer first={first}>
             <DogImage source={{ uri: image }} />
             <DogTextContainer>
                 <DogText>{title}</DogText>
@@ -15,14 +17,14 @@ export default DogCard = ({ image, title, leftShift }) => {
 };
 
 const CardContainer = styled.TouchableOpacity`
-    height: 20%;
-    width: 80%;
-    left: ${props => props.leftShift}%;
+    margin-top: ${props => props.first ? 30 : 0}px;
+    margin-bottom: 30px;
+    margin-left: ${width * ((1 - CardWidth) / 2)}px
 `;
 
 const DogImage = styled.Image`
-    height: 100%;
-    width: 100%;
+    height: ${height * .175}px;
+    width: ${width * CardWidth}px;
     resize-mode: stretch;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     border-top-left-radius: 20px;
@@ -33,6 +35,7 @@ const DogTextContainer = styled.View`
     justify-content: center;
     align-items: center;
     height: 50px;
+    width: ${width * .80}px;
     background-color: #fff;
     color: #000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
