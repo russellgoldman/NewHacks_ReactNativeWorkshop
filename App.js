@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './src/screens/HomeScreen';
+import DogBreedsScreen from './src/screens/DogBreedsScreen';
 
 const Stack = createStackNavigator();
 export default class App extends Component {
@@ -16,9 +17,9 @@ export default class App extends Component {
 
   async _loadResourcesAsync() {
     await Promise.all([
-      // Asset.loadAsync([
-      //   require('./assets/images/Background.png'),
-      // ]),
+      Asset.loadAsync([
+        require('./assets/images/Logo.png'),
+      ]),
       Font.loadAsync({
         'GrandHotel-Regular': require('./assets/fonts/GrandHotel-Regular.ttf'),
         'Futura-Medium': require('./assets/fonts/Futura-Medium.ttf'),
@@ -50,8 +51,13 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false
+          }}
+        >
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="DogBreedsScreen" component={DogBreedsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
