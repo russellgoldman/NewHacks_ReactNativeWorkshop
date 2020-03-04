@@ -3,10 +3,12 @@ import { StatusBar } from 'react-native';
 import styled from 'styled-components';
 import Logo from '../../assets/images/Logo.png';
 
+import { orange, white } from '../../colors';
+
 export default class Home extends Component {
     render() {
         const { navigation } = this.props;
-        StatusBar.setBarStyle('light-content', true);
+        StatusBar.setBarStyle('dark-content', true);
 
         return (
             <Background>
@@ -23,7 +25,7 @@ export default class Home extends Component {
 }
 
 const Background = styled.View`
-    background-color: rgba(234, 123, 22, 0.85);
+    background-color: ${orange};
 `;
 
 const Container = styled.SafeAreaView`
@@ -38,7 +40,7 @@ const AppTitle = styled.Text`
     margin-top: 40%;
     font-family: GrandHotel-Regular;
     font-size: 80px;
-    color: #fff;
+    color: ${white};
 `;
 
 const LogoImage = styled.Image`
@@ -53,7 +55,7 @@ const ButtonContainer = styled.TouchableOpacity`
     align-items: center;
     height: 70px;
     width: 65%;
-    background-color: #fff;
+    background-color: ${white};
     border-radius: 20px;
     bottom: 12.5%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -62,5 +64,5 @@ const ButtonContainer = styled.TouchableOpacity`
 const ButtonText = styled.Text`
     font-family: Futura-Medium;
     font-size: 28px;
-    color: rgba(234, 123, 22, 0.85);
+    color: ${orange};
 `;

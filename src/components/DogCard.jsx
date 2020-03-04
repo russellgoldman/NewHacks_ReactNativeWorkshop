@@ -1,32 +1,56 @@
-import React from 'react';
-import { Dimensions } from 'react-native';
+import React, { Component } from 'react';
+import { Dimensions, Platform } from 'react-native';
 import styled from 'styled-components';
 
 const { height, width } = Dimensions.get('screen')
+import { orange, white } from '../../colors';
+
+// percentage of full screen width
 let CardWidth = .80
 
-export default DogCard = ({ image, name, first, onPress }) => {
-    return (
-        <CardContainer first={first} onPress={() => onPress(image, name)}>
-            <DogImage source={{ uri: image }} />
-            <DogTextContainer>
-                <DogText>{name}</DogText>
-            </DogTextContainer>
-        </CardContainer>
-    );
+export default class DogCard extends Component {
+    state = {
+        imageLoaded: false
+    };
+
+    _onLoad = () => {
+        this.setState(() => ({ imageLoaded: true }))
+    }
+
+    render() {
+        const { image, name, first, onPress } = this.props;
+        const { imageLoaded } = this.state;
+
+        return(
+            <CardContainer first={first} onPress={() => onPress(image, name, imageLoaded)} imageLoaded={imageLoaded}>
+                <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
+                {!imageLoaded ? (
+                    <LoadingActivityIndicator size="large" color={orange} />
+                ) : (
+                    <DogTextContainer>
+                        <DogText>{name}</DogText>
+                    </DogTextContainer>
+                )}
+            </CardContainer>
+        );
+    } 
 };
 
 const CardContainer = styled.TouchableOpacity`
-    margin-top: ${props => props.first ? 30 : 0}px;
-    margin-bottom: 30px;
-    margin-left: ${width * ((1 - CardWidth) / 2)}px
+    margin-top: ${props => props.first ? 25 : 0}px;
+    margin-bottom: 25px;
+    margin-left: ${width * ((1 - CardWidth) / 2)}px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    elevation: ${props => props.imageLoaded ? 4 : 0};
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 `;
 
 const DogImage = styled.Image`
-    height: ${height * .175}px;
+    height: ${props => props.hideWhileLoading ? height * .175 : (Platform.OS === 'android' ? 0 : 1)}px;
     width: ${width * CardWidth}px;
-    resize-mode: stretch;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 `;
@@ -36,9 +60,7 @@ const DogTextContainer = styled.View`
     align-items: center;
     height: 50px;
     width: ${width * .80}px;
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    background-color: ${white};
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 `;
@@ -46,5 +68,9 @@ const DogTextContainer = styled.View`
 const DogText = styled.Text`
     font-family: Futura-Medium;
     font-size: 20px;
-    color: rgba(234, 123, 22, 0.85);
+    color: ${orange};
+`;
+
+const LoadingActivityIndicator = styled.ActivityIndicator`
+    height: ${height * .175 + 50}px;
 `;

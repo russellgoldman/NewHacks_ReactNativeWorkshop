@@ -26,7 +26,11 @@ const data = [
 ];
 
 export default class DogBreeds extends Component {
-    navigateToDogSelection(image, name) {
+    navigateToDogSelection(image, name, imageLoaded) {
+        if (!imageLoaded) {
+            return;
+        }
+
         const { navigation } = this.props;
         navigation.navigate('DogSelection', {
             image,
@@ -35,8 +39,6 @@ export default class DogBreeds extends Component {
     }
 
     render() {
-        StatusBar.setBarStyle('dark-content', true);
-
         return (
             <Container>
                 <ScreenTitleBar>
@@ -85,7 +87,7 @@ const ScreenTitleBar = styled.View`
     width: 100%;
     background-color: ${white};
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.50);
+    elevation: 10;
 `
 
-const DogList = styled.FlatList`
-`;
+const DogList = styled.FlatList``;
