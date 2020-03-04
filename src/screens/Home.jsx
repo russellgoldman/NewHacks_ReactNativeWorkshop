@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import styled from 'styled-components';
 import Logo from '../../assets/images/Logo.png';
 
-export default class HomeScreen extends Component {
+export default class Home extends Component {
     render() {
         const { navigation } = this.props;
         StatusBar.setBarStyle('light-content', true);
@@ -13,7 +13,7 @@ export default class HomeScreen extends Component {
                 <Container>
                     <AppTitle>PawFindr</AppTitle>
                     <LogoImage source={Logo} />
-                    <ButtonContainer onPress={() => navigation.navigate('DogBreedsScreen')}>
+                    <ButtonContainer onPress={() => navigation.navigate('DogBreeds')}>
                         <ButtonText>Get started!</ButtonText>
                     </ButtonContainer>
                 </Container>

@@ -5,12 +5,12 @@ import styled from 'styled-components';
 const { height, width } = Dimensions.get('screen')
 let CardWidth = .80
 
-export default DogCard = ({ image, title, first }) => {
+export default DogCard = ({ image, name, first, onPress }) => {
     return (
-        <CardContainer first={first}>
+        <CardContainer first={first} onPress={() => onPress(image, name)}>
             <DogImage source={{ uri: image }} />
             <DogTextContainer>
-                <DogText>{title}</DogText>
+                <DogText>{name}</DogText>
             </DogTextContainer>
         </CardContainer>
     );

@@ -5,10 +5,13 @@ import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './src/screens/HomeScreen';
-import DogBreedsScreen from './src/screens/DogBreedsScreen';
+import Home from './src/screens/Home';
+import DogBreeds from './src/screens/DogBreeds';
+import DogSelection from './src/screens/DogSelection';
 
-const Stack = createStackNavigator();
+console.disableYellowBox = true;  // disable yellow warnings
+const MainStack = createStackNavigator();
+const RootStack = createStackNavigator();
 export default class App extends Component {
   state = {
     isLoadingComplete: false
@@ -36,6 +39,19 @@ export default class App extends Component {
     this.setState({ isLoadingComplete: true })
   }
 
+  MainStackScreen() {
+    return (
+      <MainStack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <MainStack.Screen name="Home" component={Home} />
+        <MainStack.Screen name="DogBreeds" component={DogBreeds} />
+      </MainStack.Navigator>
+    )
+  }
+
   render() {
     const { isLoadingComplete } = this.state;
 
@@ -51,14 +67,15 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator
+        <RootStack.Navigator
           screenOptions={{
             headerShown: false
           }}
+          mode="modal"
         >
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="DogBreedsScreen" component={DogBreedsScreen} />
-        </Stack.Navigator>
+          <RootStack.Screen name="Main" component={this.MainStackScreen} />
+          <RootStack.Screen name="DogSelection" component={DogSelection} />
+        </RootStack.Navigator>
       </NavigationContainer>
     );
   }
