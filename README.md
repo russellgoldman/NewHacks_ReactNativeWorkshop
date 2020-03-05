@@ -6,23 +6,32 @@
 - Cross platform mobile development vs native development
 - Why React Native is useful and its origins
 
-## React - 5 minutes
-- Foundations (Components, State, Props)
+## React - 10 minutes
+- Foundations
+    - JavaScript Basics (Variables, If Statements, Imports)
+    - Components
+    - State
+    - Props
+- Object Destructing
+- Callback Functions passed as Props
 
-## React Native Fundamentals - 5 minutes
+## React Native Fundamentals - 10 minutes
 - React Native vs React
 - Styling React Native (Stylesheet or Styled Components)
+- Using Dimensions for responsive styling
+- Expo CLI + Installation
 
-## Workshop Project - 40 minutes
-- PawFindr
-- Live coding (omit key portions of code and fill it in, explain the mindset and what is going on)
+## Workshop Project - 30 minutes
+- Will explain key portions of the code, show their behaviours before and after in the simulator, and why it works
 
-## Questions - 5 minutes
-- Will ask to save all questions until the end due to limited time and if I happen to answer any of them along the way
+## Final Questions - 5 minutes
+- Any last unanswered questions can be answered during this period of time
 
 ## Try it yourself! (after the workshop)
 - Get started Docs (Expo CLI setup + iOS / Android simulator setup info)
     - https://reactnative.dev/docs/getting-started
 - Presentation Slides
 - PawFindr code with extensive documentation in case you missed something
+- Check out the Figma Mockups for inspiration
+    - https://www.figma.com/file/4BJ8fihqFssfalxKMbLTBr/NewHacks_ReactNativeWorkshop?node-id=0%3A1
 - Still confused? Shoot me a message on the Slack and I’ll do my best to assist! 🙂
