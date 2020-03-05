@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 import styled from 'styled-components';
 import Logo from '../../assets/images/Logo.png';
 
 import { orange, white } from '../../colors';
+const { height, width } = Dimensions.get('screen')
 
 export default class Home extends Component {
     render() {
@@ -29,15 +30,14 @@ const Background = styled.View`
 `;
 
 const Container = styled.SafeAreaView`
-    height: 100%;
-    display: flex;
+    height: ${height}px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 `;
 
 const AppTitle = styled.Text`
-    margin-top: 40%;
+    margin-top: ${height * .2}px;
     font-family: GrandHotel-Regular;
     font-size: 80px;
     color: ${white};
@@ -49,15 +49,15 @@ const LogoImage = styled.Image`
 `;
 
 const ButtonContainer = styled.TouchableOpacity`
-    display: flex;
+    height: 70px;
     margin-top: auto;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    width: 65%;
+    padding-left: ${width * 0.1}px;
+    padding-right: ${width * 0.1}px;
     background-color: ${white};
     border-radius: 20px;
-    bottom: 12.5%;
+    bottom: ${height * .015}%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 

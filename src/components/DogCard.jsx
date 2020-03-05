@@ -18,11 +18,11 @@ export default class DogCard extends Component {
     }
 
     render() {
-        const { image, name, first, onPress } = this.props;
+        const { image, name, description, first, onPress } = this.props;
         const { imageLoaded } = this.state;
 
         return(
-            <CardContainer first={first} onPress={() => onPress(image, name, imageLoaded)} imageLoaded={imageLoaded}>
+            <CardContainer first={first} onPress={() => onPress(image, name, description, imageLoaded)} imageLoaded={imageLoaded}>
                 <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
                 {!imageLoaded ? (
                     <LoadingActivityIndicator size="large" color={orange} />
