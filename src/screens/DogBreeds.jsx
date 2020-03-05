@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, FlatList, StatusBar, View } from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components';
 import DogCard from '../components/DogCard';
 
@@ -87,7 +87,7 @@ const ScreenTitle = styled.Text`
 
 const ScreenTitleBar = styled.View`
     justify-content: center;
-    z-index: 1;
+    z-index: 3;
     height: ${height * .15}px;
     width: 100%;
     background-color: ${white};

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Dimensions, Platform, StatusBar, View } from 'react-native';
-import { SafeAreaConsumer } from 'react-native-safe-area-context';
-import Logo from '../../assets/images/Logo.png';
+import { Dimensions, Platform, StatusBar } from 'react-native';
 
 const { height, width } = Dimensions.get('screen');
 import { orange, white, grey } from '../../colors';
@@ -10,7 +8,6 @@ import { orange, white, grey } from '../../colors';
 const small = 0;
 const medium = 1;
 const large = 2;
-const containerHeightPercent = 0.90
 
 export default class DogSelection extends Component {
     state = {
@@ -41,31 +38,22 @@ export default class DogSelection extends Component {
         const { imageLoaded, deviceClass } = this.state;
 
         return (
-            <SafeAreaConsumer>
-                {insets => (
-                    <>
-                        <Container imageLoaded={imageLoaded}>
-                            <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
-                            {!imageLoaded && (
-                                <LoadingActivityIndicator size="large" color={orange} />
-                            )}
-                            <SelectedDogTextInfo>
-                                <SelectedDogTitle deviceClass={deviceClass}>{name}</SelectedDogTitle>
-                                <SelectedDogDescription deviceClass={deviceClass}>{description}</SelectedDogDescription>
-                            </SelectedDogTextInfo>
-                        </Container>
-                        <NearbyAdoptionContainer>
-                            <NearbyAdoptionText deviceClass={deviceClass} insets={insets}>Find nearby adoptions!</NearbyAdoptionText>
-                        </NearbyAdoptionContainer>
-                    </>
+            <Container imageLoaded={imageLoaded}>
+                <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
+                {!imageLoaded && (
+                    <LoadingActivityIndicator size="large" color={orange} />
                 )}
-            </SafeAreaConsumer>
+                <SelectedDogTextInfo>
+                    <SelectedDogTitle deviceClass={deviceClass}>{name}</SelectedDogTitle>
+                    <SelectedDogDescription deviceClass={deviceClass}>{description}</SelectedDogDescription>
+                </SelectedDogTextInfo>
+            </Container>
         );
     }
 }
 
 const Container = styled.SafeAreaView`
-    height: ${height * containerHeightPercent}px;
+    height: ${height}px;
     top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
     background-color: ${white};
     elevation: ${props => props.imageLoaded ? 4 : 0};
@@ -104,21 +92,4 @@ const SelectedDogDescription = styled.Text`
     color: ${grey};
     line-height: 28px;
     text-align: justify;
-`;
-
-const NearbyAdoptionContainer = styled.TouchableOpacity`
-    margin-top: auto;
-    height: ${height * (1 - containerHeightPercent)}px;
-    width: ${width}px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: ${orange};
-`;
-
-const NearbyAdoptionText = styled.Text`
-    font-family: Futura-Medium;
-    font-size: ${props => props.deviceClass === small ? 18 : props.deviceClass === medium ? 24 : 30}px;
-    color: ${white};
-    bottom: ${props => props.insets.bottom !== 0 ? 10 : 0}px;
 `;
