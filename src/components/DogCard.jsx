@@ -18,7 +18,7 @@ export default DogCard = ({ image, name, description, first, onPress }) => {
         <CardContainer first={first} onPress={() => onPress(image, name, description, imageLoaded)} imageLoaded={imageLoaded}>
             {/* DogImage must remain mounted whether the image has been loaded or not because it must be mounted to fetch the image
             from the internet. To get around this issue, we have made the height basically non-visible */}
-            <DogImage source={{ uri: image }} onLoad={() => setImageLoaded(true)} hideWhileLoading={imageLoaded} />
+            <DogImage source={{ uri: image }} onLoad={() => setImageLoaded(true)} imageLoaded={imageLoaded} />
             {/* If the image has not been loaded, then show the LoadingActivityIndicator, otherwise show the Card contents */}
             {!imageLoaded ? (
                 <LoadingActivityIndicator size="large" color={orange} />
@@ -45,7 +45,7 @@ const CardContainer = styled.TouchableOpacity`
 `;
 
 const DogImage = styled.Image`
-    height: ${props => props.hideWhileLoading ? height * .175 : (Platform.OS === 'android' ? 0 : 1)}px;
+    height: ${props => props.imageLoaded ? height * .175 : (Platform.OS === 'android' ? 0 : 1)}px;
     width: ${width * CardWidth}px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
