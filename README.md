@@ -3,31 +3,30 @@ Welcome to the React Native Workshop at NewHacks 2020. My name is Russell Goldma
 
 Please post all questions in the Slack channel and I will answer them at the end of the workshop, thanks!
 
-## Why React Native - 2 minutes
+## Introduction - 5 minutes
+- Personal Introduction
 - Popular apps created with React Native
 - Cross platform mobile development vs Native development
 - Requirements
 
-## JavaScript Basics - 5 minutes
+## JavaScript Basics - 10 minutes
+- Printing to the Console
 - Variables (var, let, const)
+- Strings vs Template Strings
 - If / Else If / Else Statements, Ternary Operator
 - Functions
     - Classic Functions
     - Arrow Functions
-    - Anonymous Functions
+- Classes
 - Objects (Key / Value Pairs)
 - Object Destructing
-- Strings vs Template Strings
 - External packages with npm or yarn
     - Common examples (found in package.json under dependencies and devDependencies)
         - React
         - React Native
         - styled-components
-        - Expo
-- *Poll Quiz in Slack*
 
 ## React Basics - 10 minutes
-- What is React? Why is it better than standard HTML / CSS / JavaScript?
 - Components
     - Class Components
         - The *this* keyword
@@ -41,16 +40,10 @@ Please post all questions in the Slack channel and I will answer them at the end
 - Props
     - Why Props?
     - How to pass them to other components
-- Callback Functions and Context Binding
+    - Passing Class Methods as Props
 - Lifecycle Methods
     - What do they do?
     - Commonly used Lifecycle Methods
-        - render()
-        - constructor()
-        - componentDidMount()
-        - componentDidUpdate()
-        - componentDidUnmount()
-- *Poll Quiz in Slack*
 
 ## Styling Basics - 5 minutes
 - Commonly CSS Properties
@@ -71,12 +64,9 @@ Please post all questions in the Slack channel and I will answer them at the end
         - box-shadow
     - Depth
         - z-index
-        - elevation
-- *Poll Quiz in Slack*
 
-## React Native Fundamentals - 10 minutes
-- React Native vs React
-- Commonly used built-in React Native Components
+## React Native Basics - 5 minutes
+- React Native Introduction / Common built-in Components
     - View
     - Text
     - Image
@@ -99,20 +89,9 @@ Please post all questions in the Slack channel and I will answer them at the end
     - Expo CLI + Installation
 - React Navigation
     - Navigating between screens in React Native, we will discuss this further in the Workshop Project
-- Development Requirements
-    - A computer
-        - macOS
-        - Linux
-        - Windows
-    - Download a text editor (e.g. VSCode, Sublime Text, Atom)
-    - Command Line
-        - macOS / Linux (Terminal)
-        - Windows (Powershell)
-    - XCode for iOS Development (macOS only) and / or Android Studio for Android Development (supported on all platforms)
-- *Poll Quiz in Slack*
 
 ## Workshop Project - 30 minutes
-- I Will explain key portions of the code, show their behaviours before and after in the simulator, and why it works
+- I will explain key portions of the code, show their behaviours before and after in the simulator, and why it works
 - *Poll Quiz in Slack*
 
 ## Final Questions - 5 minutes
