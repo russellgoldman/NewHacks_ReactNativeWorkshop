@@ -12,6 +12,9 @@ Please post all questions in the Slack channel and I will answer them at the end
 - Variables (var, let, const)
 - If / Else If / Else Statements, Ternary Operator
 - Functions
+    - Classic Functions
+    - Arrow Functions
+    - Anonymous Functions
 - Objects (Key / Value Pairs)
 - Object Destructing
 - Strings vs Template Strings

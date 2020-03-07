@@ -6,6 +6,7 @@ import Logo from '../../assets/images/Logo.png';
 import { orange, white } from '../../colors';
 const { height, width } = Dimensions.get('screen')
 
+// All Class Components must extend Component
 export default class Home extends Component {
     render() {
         const { navigation } = this.props;
@@ -25,6 +26,7 @@ export default class Home extends Component {
     }
 }
 
+// All styled-component definitions
 const Background = styled.View`
     background-color: ${orange};
 `;

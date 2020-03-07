@@ -5,24 +5,27 @@ import { Dimensions, Platform, StatusBar } from 'react-native';
 const { height, width } = Dimensions.get('screen');
 import { orange, white, grey } from '../../colors';
 
-/*
-In case we want to change the associated values in the future, it is easier to denote them here.
-
-*/
+// In case we want to change the associated values in the future, it is easier to denote them here
 const small = 0;
 const medium = 1;
 const large = 2;
 
+// All Class Components must extend Component
 export default class DogSelection extends Component {
+    // Local state defined as an object
     state = {
         imageLoaded: false,
         deviceClass: small
     };
 
+    // Best practice when defining private methods is with an underscore
     _onLoad = () => {
         this.setState(() => ({ imageLoaded: true }))
     }
 
+    /* Called when the component has first been rendered.
+    Note: If ComponentA navigates to ComponentB, ComponentA will remain mounted
+    despite not being fully visible */
     componentDidMount() {
         if (height < 667) {
             // iPhone, iPhone 4, iPhone 5 / 5s
@@ -36,14 +39,18 @@ export default class DogSelection extends Component {
         }
     }
 
+    // React Native looks here to determine what should be shown visually from the Component
     render() {
+        // object destructuring 
         const { route, navigation } = this.props;
         const { image, name, description } = route.params;
         const { imageLoaded, deviceClass } = this.state;
 
+        // All JSX is included in this function
         return (
             <Container imageLoaded={imageLoaded}>
                 <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
+                {/* If the image has not been loaded, then show the LoadingActivityIndicator */}
                 {!imageLoaded && (
                     <LoadingActivityIndicator size="large" color={orange} />
                 )}
@@ -56,6 +63,7 @@ export default class DogSelection extends Component {
     }
 }
 
+// All styled-component definitions
 const Container = styled.SafeAreaView`
     height: ${height}px;
     top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;

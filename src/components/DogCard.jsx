@@ -8,12 +8,18 @@ import { orange, white } from '../../colors';
 // percentage of full screen width
 let CardWidth = .80
 
+// Destructure props in the Arrow Function parameters
 export default DogCard = ({ image, name, description, first, onPress }) => {
+    // State Hook (only works in Functional Component)
     const [imageLoaded, setImageLoaded] = useState(false);
     
-    return(
+    // All JSX is included in this function
+    return (
         <CardContainer first={first} onPress={() => onPress(image, name, description, imageLoaded)} imageLoaded={imageLoaded}>
+            {/* DogImage must remain mounted whether the image has been loaded or not because it must be mounted to fetch the image
+            from the internet. To get around this issue, we have made the height basically non-visible */}
             <DogImage source={{ uri: image }} onLoad={() => setImageLoaded(true)} hideWhileLoading={imageLoaded} />
+            {/* If the image has not been loaded, then show the LoadingActivityIndicator, otherwise show the Card contents */}
             {!imageLoaded ? (
                 <LoadingActivityIndicator size="large" color={orange} />
             ) : (
@@ -25,6 +31,7 @@ export default DogCard = ({ image, name, description, first, onPress }) => {
     );
 };
 
+// All styled-component definitions
 const CardContainer = styled.TouchableOpacity`
     margin-top: ${props => props.first ? 25 : 0}px;
     margin-bottom: 25px;

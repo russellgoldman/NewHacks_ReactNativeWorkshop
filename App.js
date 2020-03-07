@@ -9,16 +9,21 @@ import Home from './src/screens/Home';
 import DogBreeds from './src/screens/DogBreeds';
 import DogSelection from './src/screens/DogSelection';
 
-console.disableYellowBox = true;  // disable yellow warnings in Simulator
+// Used to disable yellow warnings in Simulator, feel free to remove
+console.disableYellowBox = true;
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
+
+// All Class Components must extend Component
 export default class App extends Component {
+  // Define local state
   state = {
     isLoadingComplete: false
   };
   
-
+  // Async stands for an asychronous function, the time it takes to complete is unknown at runtime
   async _loadResourcesAsync() {
+    // We must always await a Promise as we do not know when it will be fulfilled or denied
     await Promise.all([
       Asset.loadAsync([
         require('./assets/images/Logo.png'),
@@ -39,6 +44,7 @@ export default class App extends Component {
     this.setState({ isLoadingComplete: true })
   }
 
+  // Definitions for main screens using React Navigation
   MainStackScreen() {
     return (
       <MainStack.Navigator
@@ -46,6 +52,7 @@ export default class App extends Component {
           headerShown: false
         }}
       >
+        {/* All standard screens are defined here */}
         <MainStack.Screen name="Home" component={Home} />
         <MainStack.Screen name="DogBreeds" component={DogBreeds} />
       </MainStack.Navigator>
@@ -55,6 +62,8 @@ export default class App extends Component {
   render() {
     const { isLoadingComplete } = this.state;
 
+    /* If the app is loading local project fonts and images, we show the
+    AppLoading component until complete */
     if (!isLoadingComplete) {
       return (
         <AppLoading
@@ -65,15 +74,22 @@ export default class App extends Component {
       ); 
     }
 
+    // The RootStack nests all other StackNavigators 
     return (
       <NavigationContainer>
         <RootStack.Navigator
           screenOptions={{
+            // Hides the default navigation bar
             headerShown: false
           }}
+          /* For this screen to be rendered as a modal, its mode must be set to `modal`
+          and included in the RootStack */
           mode="modal"
         >
+          {/* All non-modal screens must be defined in MainStack.Navigator,
+          we link it here */}
           <RootStack.Screen name="Main" component={this.MainStackScreen} />
+          {/* All modal screens are defined here */}
           <RootStack.Screen name="DogSelection" component={DogSelection} />
         </RootStack.Navigator>
       </NavigationContainer>

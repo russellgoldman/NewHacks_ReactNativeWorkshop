@@ -1,4 +1,4 @@
-// We will be importing dynamic data to be used in our app
+// We will be importing dynamic data to be used in our app, feel free to add object data to this array in the format shown below and see what
 const data = [
     {
         name: 'Beagle',
@@ -44,8 +44,8 @@ const data = [
         name: 'Pug',
         image: 'https://vetstreet.brightspotcdn.com/dims4/default/354d0cf/2147483647/thumbnail/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fdc%2Fc4%2F8ccd3a28438d81b2f2f5d8031a05%2Fpug-ap-r82p3q-645.jpg',
         description: `The pug is a breed of dog with physically distinctive features of a wrinkly, short-muzzled face, and curled tail. The breed has a fine, glossy coat that comes in a variety of colours, most often fawn or black, and a compact square body with well-developed muscles.`
-    },
-
+    }
 ];
 
+// Export default tells JavaScript that this is the only export from this file
 export default data;
