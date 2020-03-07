@@ -5,18 +5,17 @@ Please post all questions in the Slack channel and I will answer them at the end
 
 ## Introduction - 2 minutes
 - Why mobile over desktop?
-- Popular mobile apps and use cases
-- Cross platform mobile development vs native development
-- Why React Native is useful and its origins
+- Popular apps created with React Native
+- Cross platform mobile development vs Native development
 
 ## JavaScript Basics - 5 minutes
 - Variables (var, let, const)
 - If / Else If / Else Statements, Ternary Operator
-- Functions vs Arrow Functions
+- Functions
 - Objects (Key / Value Pairs)
 - Object Destructing
 - Strings vs Template Strings
-- Downloading external packages to assist in development using Node Package Manager (npm)
+- External packages with npm or yarn
     - Common examples (found in package.json under dependencies and devDependencies)
         - React
         - React Native
@@ -24,18 +23,30 @@ Please post all questions in the Slack channel and I will answer them at the end
         - Expo
 - *Poll Quiz in Slack*
 
-## React Basics - 5 minutes
+## React Basics - 10 minutes
 - What is React? Why is it better than standard HTML / CSS / JavaScript?
 - Components
-    - Class Components vs Functional Components
-    - The *this* keyword
+    - Class Components
+        - The *this* keyword
+    - Functional / Presentational Components
 - State
     - Why State?
     - How to mutate (change) it
+        - setState (Class Components)
+        - useState Hook (Functional Components)
+    - Re-rendering Components with changes to State
 - Props
     - Why Props?
     - How to pass them to other components
 - Callback Functions and Context Binding
+- Lifecycle Methods
+    - What do they do?
+    - Commonly used Lifecycle Methods
+        - render()
+        - constructor()
+        - componentDidMount()
+        - componentDidUpdate()
+        - componentDidUnmount()
 - *Poll Quiz in Slack*
 
 ## Styling Basics - 5 minutes
@@ -60,7 +71,7 @@ Please post all questions in the Slack channel and I will answer them at the end
         - elevation
 - *Poll Quiz in Slack*
 
-## React Native Fundamentals - 5 minutes
+## React Native Fundamentals - 10 minutes
 - React Native vs React
 - Commonly used built-in React Native Components
     - View
@@ -95,7 +106,7 @@ Please post all questions in the Slack channel and I will answer them at the end
         - macOS / Linux (Terminal)
         - Windows (Powershell)
     - XCode for iOS Development (macOS only) and / or Android Studio for Android Development (supported on all platforms)
-- *Poll Quiz*
+- *Poll Quiz in Slack*
 
 ## Workshop Project - 30 minutes
 - I Will explain key portions of the code, show their behaviours before and after in the simulator, and why it works

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Dimensions, Platform } from 'react-native';
 import styled from 'styled-components';
 
@@ -8,32 +8,21 @@ import { orange, white } from '../../colors';
 // percentage of full screen width
 let CardWidth = .80
 
-export default class DogCard extends Component {
-    state = {
-        imageLoaded: false
-    };
-
-    _onLoad = () => {
-        this.setState(() => ({ imageLoaded: true }))
-    }
-
-    render() {
-        const { image, name, description, first, onPress } = this.props;
-        const { imageLoaded } = this.state;
-
-        return(
-            <CardContainer first={first} onPress={() => onPress(image, name, description, imageLoaded)} imageLoaded={imageLoaded}>
-                <DogImage source={{ uri: image }} onLoad={this._onLoad} hideWhileLoading={imageLoaded} />
-                {!imageLoaded ? (
-                    <LoadingActivityIndicator size="large" color={orange} />
-                ) : (
-                    <DogTextContainer>
-                        <DogText>{name}</DogText>
-                    </DogTextContainer>
-                )}
-            </CardContainer>
-        );
-    } 
+export default DogCard = ({ image, name, description, first, onPress }) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    
+    return(
+        <CardContainer first={first} onPress={() => onPress(image, name, description, imageLoaded)} imageLoaded={imageLoaded}>
+            <DogImage source={{ uri: image }} onLoad={() => setImageLoaded(true)} hideWhileLoading={imageLoaded} />
+            {!imageLoaded ? (
+                <LoadingActivityIndicator size="large" color={orange} />
+            ) : (
+                <DogTextContainer>
+                    <DogText>{name}</DogText>
+                </DogTextContainer>
+            )}
+        </CardContainer>
+    );
 };
 
 const CardContainer = styled.TouchableOpacity`

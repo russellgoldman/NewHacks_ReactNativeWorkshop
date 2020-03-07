@@ -5,6 +5,10 @@ import { Dimensions, Platform, StatusBar } from 'react-native';
 const { height, width } = Dimensions.get('screen');
 import { orange, white, grey } from '../../colors';
 
+/*
+In case we want to change the associated values in the future, it is easier to denote them here.
+
+*/
 const small = 0;
 const medium = 1;
 const large = 2;
