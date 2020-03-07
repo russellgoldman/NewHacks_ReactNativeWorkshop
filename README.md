@@ -3,10 +3,10 @@ Welcome to the React Native Workshop at NewHacks 2020. My name is Russell Goldma
 
 Please post all questions in the Slack channel and I will answer them at the end of the workshop, thanks!
 
-## Introduction - 2 minutes
-- Why mobile over desktop?
+## Why React Native - 2 minutes
 - Popular apps created with React Native
 - Cross platform mobile development vs Native development
+- Requirements
 
 ## JavaScript Basics - 5 minutes
 - Variables (var, let, const)
