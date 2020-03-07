@@ -9,7 +9,7 @@ import Home from './src/screens/Home';
 import DogBreeds from './src/screens/DogBreeds';
 import DogSelection from './src/screens/DogSelection';
 
-console.disableYellowBox = true;  // disable yellow warnings
+console.disableYellowBox = true;  // disable yellow warnings in Simulator
 const MainStack = createStackNavigator();
 const RootStack = createStackNavigator();
 export default class App extends Component {
